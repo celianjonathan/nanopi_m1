@@ -5,3 +5,24 @@ Documentation
 =============
 
 http://wiki.friendlyarm.com/wiki/index.php/NanoPi_M1
+
+Matériel
+========
+
+- NanoPi M1
+- Sandisk MicroSDHC Ultra 64Go Classe 10
+
+U-boot
+======
+
+http://git.denx.de/?p=u-boot.git;a=summary
+
+make ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-" orangepi_one_defconfig
+make ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-"
+
+Fichier à récuperer: u-boot-sunxi-with-spl.bin
+
+sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8
+
+Debian
+======
