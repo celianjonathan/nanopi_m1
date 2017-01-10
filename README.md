@@ -26,3 +26,16 @@ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8
 
 Debian
 ======
+
+
+
+
+
+
+
+
+
+Boot
+====
+
+setenv extra init=/bin/bash
