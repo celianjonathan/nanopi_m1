@@ -18,6 +18,8 @@ U-boot
 Formatage
 ---------
 
+/!\ NE PAS MONTER LA CARTE SD /!\
+
 ```bash
 sudo parted /dev/sdd
 rm 1
@@ -43,6 +45,8 @@ Vérifier si u-boot démarre.
 
 Installation Debian Stretch
 ===========================
+
+Monter la carte sd.
 
 ```bash
 sudo debootstrap --foreign --arch=armhf --include=less,vim,openssh-server,make,u-boot-tools,initramfs-tools,htop,linux-image-armmp-lpae stretch .
