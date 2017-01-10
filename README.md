@@ -40,10 +40,17 @@ Boot
 ====
 
 setenv extra init=/bin/bash
+
 mount -o remount -w /
+
 passwd
+
 #Changer le pass
+
 /debootstrap/debootstrap --second-stage
+
 ...
+
 I: Base system installed successfully.
+
 #Redemarrer la carte
