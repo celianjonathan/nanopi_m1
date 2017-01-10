@@ -24,8 +24,9 @@ Fichier à récuperer: u-boot-sunxi-with-spl.bin
 
 sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8
 
-Debian
-======
+Installation Debian Stretch
+===========================
+
 
 
 
@@ -39,3 +40,10 @@ Boot
 ====
 
 setenv extra init=/bin/bash
+mount -o remount -w /
+passwd
+#Changer le pass
+/debootstrap/debootstrap --second-stage
+...
+I: Base system installed successfully.
+#Redemarrer la carte
