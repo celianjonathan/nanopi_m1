@@ -82,21 +82,44 @@ La première fois le kernel ne sera présent donc relancer une deuxième fois, l
 I: Base system installed successfully.
 ```
 
+//FIXME Sipliter en 2 parties
+
+Pour un u-boot qui supporte zImage:
+
+```bash
+ln -s vmlinuz-4.8.0-2-armmp-lpae zImage
+ln -s initrd.img-4.8.0-2-armmp-lpae initrd
+```
+
+Pour un u-boot qui ne supporte pas zImage:
+
 ```bash
 mkimage -A arm -O linux -T kernel -C none -a 0x42000000 -n "vmlinuz-4.8.0-2-armmp-lpae" -d vmlinuz-4.8.0-2-armmp-lpae uImage
 mkimage -A arm -O linux -T ramdisk -C none -a 0x43300000 -n "initrd.uboot" -d initrd.uboot initrd.uboot
 ```
 
-Créer le fichier `boot.cmd` situé dans `\boot`
+Créer le fichier `boot.cmd` situé dans `\boot` (Version uImage)
 
 ```bash
 cat /boot/boot.cmd
 setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rootwait panic=10 ${extra}
 ext2load mmc 0 0x42000000 boot/uImage
-ext2load mmc 0 0x43300000 boot/initrd.uboot
 ext2load mmc 0 0x43000000 boot/board.dtb
+ext2load mmc 0 0x43300000 boot/initrd.uboot
 bootm 0x42000000 0x43300000 0x43000000
 ```
+
+Créer le fichier `boot.cmd` situé dans `\boot` (Version zImage)
+
+```bash
+cat /boot/boot.cmd
+setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rootwait panic=10 ${extra}
+ext4load mmc 0 0x42000000 boot/zImage
+ext4load mmc 0 0x43000000 boot/board.dtb
+ext4load mmc 0 0x43300000 boot/initrd
+bootz 0x42000000 0x43300000:${filesize} 0x43000000
+```
+
 
 ```bash
 mkimage -C none -A arm -T script -d boot.cmd boot.scr
@@ -106,7 +129,7 @@ DTB
 ---
 
 Le dtb se situe dans `/usr/lib/linux-image-4.8.0-2-armmp-lpae/usr/lib/linux-image-4.8.0-2-armmp-lpae`
-Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot. On l'a nommé `board.dtb`.
+Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot. On l'a nommé `board.dtb` (lien symbolique good).
 
 Boot
 ====
