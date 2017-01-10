@@ -46,7 +46,17 @@ Vérifier si u-boot démarre.
 Installation Debian Stretch
 ===========================
 
+```bash
+sudo mkfs.ext4 /dev/sdc1
+```
+
 Monter la carte sd.
+
+```bash
+cd cle
+sudo mkdir proc
+sudo mount -t proc proc proc
+```
 
 ```bash
 sudo debootstrap --foreign --arch=armhf --include=less,vim,openssh-server,make,u-boot-tools,initramfs-tools,htop,linux-image-armmp-lpae stretch .
@@ -56,6 +66,7 @@ sudo debootstrap --foreign --arch=armhf --include=less,vim,openssh-server,make,u
 mkimage -A arm -O linux -T kernel -C none -a 0x42000000 -n "vmlinuz-4.8.0-2-armmp-lpae" -d vmlinuz-4.8.0-2-armmp-lpae uImage
 mkimage -A arm -O linux -T ramdisk -C none -a 0x43300000 -n "initrd.uboot" -d initrd.uboot initrd.uboot
 ```
+
 Créer le fichier `boot.cmd` situé dans `\boot`
 
 ```bash
