@@ -83,7 +83,8 @@ La première fois le kernel ne sera présent donc relancer une deuxième fois, l
 I: Base system installed successfully.
 ```
 
-//FIXME Sipliter en 2 parties
+Partie zImage
+-------------
 
 Pour un u-boot qui supporte zImage:
 
@@ -91,6 +92,20 @@ Pour un u-boot qui supporte zImage:
 ln -s vmlinuz-4.8.0-2-armmp-lpae zImage
 ln -s initrd.img-4.8.0-2-armmp-lpae initrd
 ```
+
+Créer le fichier `boot.cmd` situé dans `\boot` (Version zImage)
+
+```bash
+cat /boot/boot.cmd
+setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rootwait panic=10 ${extra}
+ext4load mmc 0 0x42000000 boot/zImage
+ext4load mmc 0 0x43000000 boot/board.dtb
+ext4load mmc 0 0x43300000 boot/initrd
+bootz 0x42000000 0x43300000:${filesize} 0x43000000
+```
+
+Partie uImage
+-------------
 
 Pour un u-boot qui ne supporte pas zImage:
 
@@ -108,17 +123,6 @@ ext2load mmc 0 0x42000000 boot/uImage
 ext2load mmc 0 0x43000000 boot/board.dtb
 ext2load mmc 0 0x43300000 boot/initrd.uboot
 bootm 0x42000000 0x43300000 0x43000000
-```
-
-Créer le fichier `boot.cmd` situé dans `\boot` (Version zImage)
-
-```bash
-cat /boot/boot.cmd
-setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rootwait panic=10 ${extra}
-ext4load mmc 0 0x42000000 boot/zImage
-ext4load mmc 0 0x43000000 boot/board.dtb
-ext4load mmc 0 0x43300000 boot/initrd
-bootz 0x42000000 0x43300000:${filesize} 0x43000000
 ```
 
 ```bash
