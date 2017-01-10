@@ -45,7 +45,7 @@ mount -o remount -w /
 
 passwd
 
-#Changer le pass
+Changer le pass
 
 /debootstrap/debootstrap --second-stage
 
@@ -53,4 +53,9 @@ passwd
 
 I: Base system installed successfully.
 
-#Redemarrer la carte
+Redemarrer la carte
+
+root@pc-12:~# cat /etc/fstab 
+# "File System"  "Mount Point"  "Type"  "Option"   "Dump"   "Pass"
+/dev/mmblk0p1 /               ext4    errors=remount-ro 0       1
+
