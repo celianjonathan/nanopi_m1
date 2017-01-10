@@ -63,6 +63,19 @@ sudo debootstrap --foreign --arch=armhf --include=less,vim,openssh-server,make,u
 ```
 
 ```bash
+sudo cp /usr/bin/qemu-arm-static usr/bin/
+sudo chroot .
+```
+
+Vous pouvez alors finir le debootstrap:
+
+```bash
+/debootstrap/debootstrap --second-stage
+...
+I: Base system installed successfully.
+```
+
+```bash
 mkimage -A arm -O linux -T kernel -C none -a 0x42000000 -n "vmlinuz-4.8.0-2-armmp-lpae" -d vmlinuz-4.8.0-2-armmp-lpae uImage
 mkimage -A arm -O linux -T ramdisk -C none -a 0x43300000 -n "initrd.uboot" -d initrd.uboot initrd.uboot
 ```
@@ -107,14 +120,6 @@ mount -o remount -w /
 ```
 ```bash
 passwd
-```
-
-Vous pouvez alors finir le debootstrap:
-
-```bash
-/debootstrap/debootstrap --second-stage
-...
-I: Base system installed successfully.
 ```
 
 Durant notre première tentative de boot, fsck n'était pas executé lors du boot.
