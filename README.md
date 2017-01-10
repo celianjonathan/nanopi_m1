@@ -223,3 +223,11 @@ Redemarrer la carte
 Gestion du Réseau
 =================
 
+
+Cross Compilateur Tool Chain
+============================
+
+```bash
+sudo apt-get install crossbuild-essential-armhf
+export PATH="${PATH}:/usr/bin"
+```
