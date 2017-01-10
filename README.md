@@ -108,6 +108,8 @@ Passe 5 : vérification de l'information du sommaire de groupe
        16381 fichiers
 ```
 
+Modifier le fichier `/etc/fstab`:
+
 ```bash
 root@pc-12:~# cat /etc/fstab 
 "File System"         "Mount Point"   "Type"  "Option"                "Dump"  "Pass"
