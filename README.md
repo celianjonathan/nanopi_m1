@@ -53,6 +53,13 @@ bootm 0x42000000 0x43300000 0x43000000
 ```bash
 mkimage -C none -A arm -T script -d boot.cmd boot.scr
 ```
+
+DTB
+---
+
+Le dtb se situe dans `/usr/lib/linux-image-4.8.0-2-armmp-lpae/usr/lib/linux-image-4.8.0-2-armmp-lpae`
+Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot
+
 Boot
 ====
 
