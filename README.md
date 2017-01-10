@@ -55,7 +55,8 @@ I: Base system installed successfully.
 
 Redemarrer la carte
 
+```bash
 root@pc-12:~# cat /etc/fstab 
- "File System"  "Mount Point"  "Type"  "Option"   "Dump"   "Pass"
-/dev/mmcblk0p1 /               ext4    errors=remount-ro 0       1
-
+"File System"         "Mount Point"   "Type"  "Option"                "Dump"  "Pass"
+/dev/mmcblk0p1          /               ext4    errors=remount-ro       0       1
+```
