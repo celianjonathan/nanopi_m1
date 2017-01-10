@@ -175,6 +175,14 @@ Relancer la 3ième fois le debootstrap:
 /debootstrap/debootstrap --second-stage
 ```
 
+Modifier le fichier `/etc/fstab`:
+
+```bash
+root@pc-12:~# cat /etc/fstab 
+"File System"         "Mount Point"   "Type"  "Option"                "Dump"  "Pass"
+/dev/mmcblk0p1          /               ext4    errors=remount-ro       0       1
+```
+
 Durant notre première tentative de boot, fsck n'était pas executé lors du boot.
 
 Sur votre ordinateur, executez la ligne suivante:
@@ -208,14 +216,6 @@ Passe 5 : vérification de l'information du sommaire de groupe
            0 socket
 ------------
        16381 fichiers
-```
-
-Modifier le fichier `/etc/fstab`:
-
-```bash
-root@pc-12:~# cat /etc/fstab 
-"File System"         "Mount Point"   "Type"  "Option"                "Dump"  "Pass"
-/dev/mmcblk0p1          /               ext4    errors=remount-ro       0       1
 ```
 
 Redemarrer la carte
