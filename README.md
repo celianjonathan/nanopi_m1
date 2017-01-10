@@ -31,15 +31,21 @@ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8
 Installation Debian Stretch
 ===========================
 
+```bash
+sudo debootstrap --foreign --arch=armhf --include=less,vim,openssh-server,make,u-boot-tools,initramfs-tools,htop,linux-image-armmp-lpae stretch .
+```
 
-
-
-
-
-
-
-
-
+```bash
+mkimage -A arm -O linux -T kernel -C none -a 0x42000000 -n "vmlinuz-4.8.0-2-armmp-lpae" -d vmlinuz-4.8.0-2-armmp-lpae uImage
+mkimage -A arm -O linux -T ramdisk -C none -a 0x43300000 -n "initrd.uboot" -d initrd.uboot initrd.uboot
+root@nanopim1-celian:~# cat /boot/boot.cmd 
+setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rootwait panic=10 ${extra}
+ext2load mmc 0 0x42000000 boot/uImage
+ext2load mmc 0 0x43300000 boot/initrd.uboot
+ext2load mmc 0 0x43000000 boot/board.dtb
+bootm 0x42000000 0x43300000 0x43000000
+mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
 Boot
 ====
 
