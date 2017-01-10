@@ -15,7 +15,18 @@ Matériel
 U-boot
 ======
 
+Formatage
+---------
+
+```bash
+sudo parted /dev/sdd
+rm 1
+mkpart primary ext4 2MB 63,9GB
+```
+
 http://git.denx.de/?p=u-boot.git;a=summary
+
+Voir chez linaro pour les compilateurs cross.
 
 ```bash
 make ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-" orangepi_one_defconfig
@@ -27,6 +38,8 @@ Fichier à récuperer: u-boot-sunxi-with-spl.bin
 ```bash
 sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8
 ```
+
+Vérifier si u-boot démarre.
 
 Installation Debian Stretch
 ===========================
