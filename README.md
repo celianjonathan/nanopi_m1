@@ -63,6 +63,7 @@ sudo debootstrap --foreign --arch=armhf --include=less,vim,openssh-server,make,u
 ```
 
 ```bash
+apt-get install qemu-user-static
 sudo cp /usr/bin/qemu-arm-static usr/bin/
 sudo chroot .
 ```
