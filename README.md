@@ -120,9 +120,26 @@ ext4load mmc 0 0x43300000 boot/initrd
 bootz 0x42000000 0x43300000:${filesize} 0x43000000
 ```
 
-
 ```bash
 mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
+
+On arrive alors au dossier boot suivant:
+
+```bash
+I have no name!@pc-12:/boot# l
+total 21916
+drwxr-xr-x  2 root root     4096 Jan 10 15:39 .
+drwxr-xr-x 22 root root     4096 Jan 10 15:31 ..
+-rw-r--r--  1 root root  2959421 Jan  4 19:39 System.map-4.8.0-2-armmp-lpae
+lrwxrwxrwx  1 root root       65 Jan 10 15:39 board.dtb -> /usr/lib/linux-image-4.8.0-2-armmp-lpae/sun8i-h3-orangepi-one.dtb
+-rw-r--r--  1 root root      250 Jan 10 15:37 boot.cmd
+-rw-r--r--  1 root root      322 Jan 10 15:38 boot.scr
+-rw-r--r--  1 root root   186724 Jan  4 19:39 config-4.8.0-2-armmp-lpae
+lrwxrwxrwx  1 root root       29 Jan 10 15:35 initrd -> initrd.img-4.8.0-2-armmp-lpae
+-rw-r--r--  1 root root 15518010 Jan 10 15:34 initrd.img-4.8.0-2-armmp-lpae
+-rw-r--r--  1 root root  3751128 Jan  4 19:39 vmlinuz-4.8.0-2-armmp-lpae
+lrwxrwxrwx  1 root root       26 Jan 10 15:35 zImage -> vmlinuz-4.8.0-2-armmp-lpae
 ```
 
 DTB
