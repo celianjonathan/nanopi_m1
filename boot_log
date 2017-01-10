@@ -1,0 +1,391 @@
+U-Boot SPL 2016.11 (Jan 10 2017 - 14:40:25)
+DRAM: 1024 MiB
+Trying to boot from MMC1
+
+
+U-Boot 2016.11 (Jan 10 2017 - 14:40:25 +0100) Allwinner Technology
+
+CPU:   Allwinner H3 (SUN8I 1680)
+Model: Xunlong Orange Pi One
+DRAM:  1 GiB
+MMC:   SUNXI SD/MMC: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   phy interface0
+eth0: ethernet@1c30000
+starting USB...
+USB0:   USB EHCI 1.00
+USB1:   USB OHCI 1.0
+scanning bus 0 for devices... 1 USB Device(s) found
+Hit any key to stop autoboot:  0 
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Found U-Boot script /boot/boot.scr
+331 bytes read in 156 ms (2 KiB/s)
+## Executing script at 43100000
+3751192 bytes read in 318 ms (11.2 MiB/s)
+15516119 bytes read in 848 ms (17.4 MiB/s)
+11309 bytes read in 186 ms (58.6 KiB/s)
+## Booting kernel from Legacy Image at 42000000 ...
+   Image Name:   vmlinuz-4.8.0-2-armmp-lpae
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3751128 Bytes = 3.6 MiB
+   Load Address: 42000000
+   Entry Point:  42000000
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 43300000 ...
+   Image Name:   initrd.img-4.8.0-2-armmp-lpae
+   Image Type:   ARM Linux RAMDisk Image (uncompressed)
+   Data Size:    15516055 Bytes = 14.8 MiB
+   Load Address: 43300000
+   Entry Point:  43300000
+   Verifying Checksum ... OK
+## Flattened Device Tree blob at 43000000
+   Booting using the fdt blob at 0x43000000
+   Loading Kernel Image ... OK
+   Loading Ramdisk to 49133000, end 49fff197 ... OK
+   Loading Device Tree to 4912d000, end 49132c2c ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.8.0-2-armmp-lpae (debian-kernel@lists.debian.org) (gcc version 5.4.1 20161202 (Debian 5.4.1-4) ) #1 SMP Debia)
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=30c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt:Machine model: Xunlong Orange Pi One
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 16 MiB at 0x000000007e800000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: Using PSCI v0.1 Function IDs from DT
+[    0.000000] percpu: Embedded 14 pages/cpu @ef6b3000 s27596 r8192 d21556 u57344
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 260416
+[    0.000000] Kernel command line: console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rootwait panic=10
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 990952K/1048576K available (8192K kernel code, 992K rwdata, 2220K rodata, 2048K init, 397K bss, 41240K reserved, 1638)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0a00000   (10208 kB)
+[    0.000000]       .init : 0xc0e00000 - 0xc1000000   (2048 kB)
+[    0.000000]       .data : 0xc1000000 - 0xc10f81fc   ( 993 kB)
+[    0.000000]        .bss : 0xc10fa000 - 0xc115d70c   ( 398 kB)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000]  Build-time adjustment of leaf fanout to 32.
+[    0.000000]  RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=4
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] arm_arch_timer: Architected cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000008] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000020] Switching to timer-based delay loop, resolution 41ns
+[    0.000662] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.001649] Console: colour dummy device 80x30
+[    0.001686] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=120000)
+[    0.001701] pid_max: default: 32768 minimum: 301
+[    0.001963] Security Framework initialized
+[    0.001977] Yama: disabled by default; enable with sysctl kernel.yama.*
+[    0.002010] AppArmor: AppArmor disabled by boot time parameter
+[    0.002096] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.002108] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.003054] CPU: Testing write buffer coherency: ok
+[    0.003109] ftrace: allocating 27171 entries in 80 pages
+[    0.055453] /cpus/cpu@0 missing clock-frequency property
+[    0.055483] /cpus/cpu@1 missing clock-frequency property
+[    0.055496] /cpus/cpu@2 missing clock-frequency property
+[    0.055511] /cpus/cpu@3 missing clock-frequency property
+[    0.055522] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.055548] Setting up static identity map for 0x40200000 - 0x40200098
+[    0.059078] EFI services will not be available.
+[    0.070460] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.081436] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.092316] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.092400] Brought up 4 CPUs
+[    0.092424] SMP: Total of 4 processors activated (192.00 BogoMIPS).
+[    0.092431] CPU: All CPU(s) started in HYP mode.
+[    0.092436] CPU: Virtualization extensions available.
+[    0.093426] devtmpfs: initialized
+[    0.097180] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.097501] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 9556302231375000 ns
+[    0.098247] pinctrl core: initialized pinctrl subsystem
+[    0.099546] NET: Registered protocol family 16
+[    0.101128] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.102315] No ATAGs?
+[    0.102349] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.102358] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.102866] Serial: AMBA PL011 UART driver
+[    0.127965] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+[    0.131870] vgaarb: loaded
+[    0.132758] media: Linux media interface: v0.10
+[    0.132815] Linux video capture interface: v2.00
+[    0.132894] pps_core: LinuxPPS API ver. 1 registered
+[    0.132903] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.132927] PTP clock support registered
+[    0.134387] clocksource: Switched to clocksource arch_sys_counter
+[    0.179910] VFS: Disk quotas dquot_6.6.0
+[    0.180017] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.192490] NET: Registered protocol family 2
+[    0.193292] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.193375] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.193490] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.193556] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.193611] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.193902] NET: Registered protocol family 1
+[    0.194316] Unpacking initramfs...
+[    1.206258] Freeing initrd memory: 15156K (c9133000 - ca000000)
+[    1.206457] kvm [1]: IDMAP page: 40201000
+[    1.206467] kvm [1]: HYP VA range: c0000000:ffffffff
+[    1.206916] kvm [1]: 8-bit VMID
+[    1.206924] kvm [1]: Hyp mode initialized successfully
+[    1.206976] kvm [1]: vgic-v2@1c84000
+[    1.207165] kvm [1]: vgic interrupt IRQ16
+[    1.207384] kvm [1]: virtual timer IRQ19
+[    1.209756] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    1.209917] audit: initializing netlink subsys (disabled)
+[    1.210007] audit: type=2000 audit(1.165:1): initialized
+[    1.210512] Initialise system trusted keyrings
+[    1.210876] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+[    1.210948] zbud: loaded
+[    1.538767] Key type asymmetric registered
+[    1.538784] Asymmetric key parser 'x509' registered
+[    1.538856] bounce: pool size: 64 pages
+[    1.538959] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    1.539105] io scheduler noop registered
+[    1.539115] io scheduler deadline registered
+[    1.539176] io scheduler cfq registered (default)
+[    1.542360] sun8i-h3-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
+[    1.543243] sun8i-h3-r-pinctrl 1f02c00.pinctrl: initialized sunXi PIO driver
+[    1.545706] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    1.547524] console [ttyS0] disabled
+[    1.567868] 1c28000.serial: ttyS0 at MMIO 0x1c28000 (irq = 30, base_baud = 1500000) is a U6_16550A
+[    2.248604] console [ttyS0] enabled
+[    2.252678] Serial: AMBA driver
+[    2.257990] libphy: Fixed MDIO Bus: probed
+[    2.262793] mousedev: PS/2 mouse device common for all mice
+[    2.269918] sun6i-rtc 1f00000.rtc: rtc core: registered rtc-sun6i as rtc0
+[    2.276725] sun6i-rtc 1f00000.rtc: RTC enabled
+[    2.282957] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.290433] NET: Registered protocol family 10
+[    2.295862] mip6: Mobile IPv6
+[    2.298840] NET: Registered protocol family 17
+[    2.303332] mpls_gso: MPLS GSO support
+[    2.307185] ThumbEE CPU extension supported.
+[    2.311475] Registering SWP/SWPB emulation handler
+[    2.317052] registered taskstats version 1
+[    2.321182] Loading compiled-in X.509 certificates
+[    2.334610] alg: No test for pkcs1pad(rsa,sha256) (pkcs1pad(rsa-generic,sha256))
+[    2.344019] Loaded X.509 cert 'Debian Project: Ben Hutchings: 008a018dca80932630'
+[    2.351655] zswap: loaded using pool lzo/zbud
+[    2.357199] input: r_gpio_keys as /devices/platform/r_gpio_keys/input/input0
+[    2.364423] sun6i-rtc 1f00000.rtc: setting system clock to 1970-01-01 00:17:45 UTC (1065)
+[    2.372614] sr_init: No PMIC hook to init smartreflex
+[    2.377803] sr_init: platform driver register failed for SR
+[    2.388434] vcc3v0: disabling
+[    2.391466] vcc3v3: disabling
+[    2.394452] vcc5v0: disabling
+[    2.400018] Freeing unused kernel memory: 2048K (c0e00000 - c1000000)
+Loading, please wait...
+starting version 232
+[    2.453104] random: systemd-udevd: uninitialized urandom read (16 bytes read)
+[    2.459731] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.461572] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.461992] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.462419] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.462835] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.463253] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.463635] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.464165] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.464572] random: udevadm: uninitialized urandom read (16 bytes read)
+[    2.586118] sunxi-mmc 1c0f000.mmc: Got CD GPIO
+[    2.589033] usbcore: registered new interface driver usbfs
+[    2.589108] usbcore: registered new interface driver hub
+[    2.589280] usbcore: registered new device driver usb
+[    2.598403] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.602151] ehci-platform: EHCI generic platform driver
+[    2.611568] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.619794] ohci-platform: OHCI generic platform driver
+[    2.669512] sunxi-mmc 1c0f000.mmc: base:0xf08d8000 irq:23
+[    2.675257] sun4i-usb-phy 1c19400.phy: dr_mode unknown, not registering usb phy0
+[    2.683566] ehci-platform 1c1b000.usb: EHCI Host Controller
+[    2.689268] ehci-platform 1c1b000.usb: new USB bus registered, assigned bus number 1
+[    2.697620] ehci-platform 1c1b000.usb: irq 24, io mem 0x01c1b000
+[    2.714411] ehci-platform 1c1b000.usb: USB 2.0 started, EHCI 1.00
+[    2.720786] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    2.724226] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.727091] mmc0: new high speed SDXC card at address aaaa
+[    2.727879] mmcblk0: mmc0:aaaa ACLCE 59.5 GiB 
+[    2.730306]  mmcblk0: p1
+[    2.748126] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.755378] usb usb1: Product: EHCI Host Controller
+[    2.760301] usb usb1: Manufacturer: Linux 4.8.0-2-armmp-lpae ehci_hcd
+[    2.766796] usb usb1: SerialNumber: 1c1b000.usb
+[    2.772330] hub 1-0:1.0: USB hub found
+[    2.776198] hub 1-0:1.0: 1 port detected
+[    2.781000] ohci-platform 1c1b400.usb: Generic Platform OHCI controller
+[    2.787781] ohci-platform 1c1b400.usb: new USB bus registered, assigned bus number 2
+[    2.796146] ohci-platform 1c1b400.usb: irq 25, io mem 0x01c1b400
+[    2.863729] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+[    2.870623] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.877939] usb usb2: Product: Generic Platform OHCI controller
+[    2.883920] usb usb2: Manufacturer: Linux 4.8.0-2-armmp-lpae ohci_hcd
+[    2.890418] usb usb2: SerialNumber: 1c1b400.usb
+[    2.896024] hub 2-0:1.0: USB hub found
+[    2.899908] hub 2-0:1.0: 1 port detected
+Begin: Loading essential drivers ... done.
+Begin: Running /scripts/init-premount ... done.
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
+Begin: Running /scripts/local-premount ... done.
+Warning: fsck not present, so skipping root file system
+[    3.060986] EXT4-fs (mmcblk0p1): INFO: recovery required on readonly filesystem
+[    3.068339] EXT4-fs (mmcblk0p1): write access will be enabled during recovery
+[    3.138802] random: fast init done
+[    3.394080] random: crng init done
+[    3.419045] EXT4-fs (mmcblk0p1): orphan cleanup on readonly fs
+[    3.436819] EXT4-fs (mmcblk0p1): 9 orphan inodes deleted
+[    3.442173] EXT4-fs (mmcblk0p1): recovery complete
+[    3.514913] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+done.
+Begin: Running /scripts/local-bottom ... done.
+Begin: Running /scripts/init-bottom ... done.
+[    3.959728] systemd[1]: System time before build time, advancing clock.
+[    4.037708] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    4.088679] systemd[1]: systemd 232 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +G)
+[    4.107352] systemd[1]: Detected architecture arm.
+
+Welcome to Debian GNU/Linux stretch/sid!
+
+[    4.132683] systemd[1]: Set hostname to <pc-12>.
+[    4.444027] systemd[1]: Listening on udev Control Socket.
+[  OK  ] Listening on udev Control Socket.
+[    4.464909] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    4.484585] systemd[1]: Reached target Remote File Systems.
+[  OK  ] Reached target Remote File Systems.
+[    4.505380] systemd[1]: Created slice System Slice.
+[  OK  ] Created slice System Slice.
+[    4.560059] systemd[1]: Starting Load Kernel Modules...
+         Starting Load Kernel Modules...
+[    4.583913] systemd[1]: Starting Create list of required static device nodes for the current kernel...
+         Starting Create list of required st��…ce nodes for the current kernel...
+[    4.618828] systemd[1]: Mounting Huge Pages File System...
+         Mounting Huge Pages File System...
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Listening on Syslog Socket.
+[  OK  ] Created slice system-serial\x2dgetty.slice.
+[  OK  ] Reached target Slices.
+         Mounting Debug File System...
+[  OK  ] Set up automount Arbitrary Executab��…rmats File System Automount Point.
+[  OK  ] Listening on /dev/initctl Compatibility Named Pipe.
+[  OK  ] Listening on Journal Audit Socket.
+[  OK  ] Created slice system-getty.slice.
+         Starting Remount Root and Kernel File Systems...
+[  OK  ] Listening on udev Kernel Socket.
+[  OK  ] Listening on Journal Socket (/dev/log).
+         Starting Journal Service...
+[  OK  ] Reached target Sockets.
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Reached target Encrypted Volumes.
+[  OK  ] Reached target Paths.
+[  OK  ] Reached target Swap.
+         Mounting POSIX Message Queue File System...
+[  OK  ] Mounted POSIX Message Queue File System.
+[  OK  ] Mounted Debug File System.
+[  OK  ] Mounted Huge Pages File System.
+[  OK  ] Started Journal Service.
+[  OK  ] Started Load Kernel Modules.
+[  OK  ] Started Create list of required sta��…vice nodes for the current kernel.
+[  OK  ] Started Remount Root and Kernel File Systems.
+         Starting udev Coldplug all Devices...
+         Starting Load/Save Random Seed...
+         Starting Create Static Device Nodes in /dev...
+         Starting Apply Kernel Variables...
+         Starting Flush Journal to Persistent Storage...
+[  OK  ] Started Load/Save Random Seed.
+[  OK  ] Started Create Static Device Nodes in /dev.
+[  OK  ] Started Apply Kernel Variables.
+         Starting udev Kernel Device Manager...
+[  OK  ] Reached target Local File Systems (Pre).
+[  OK  ] Reached target Local File Systems.
+         Starting Raise network interfaces...
+[  OK  ] Started udev Kernel Device Manager.
+[  OK  ] Started udev Coldplug all Devices.
+[    5.563196] systemd-journald[167]: Received request to flush runtime journal from PID 1
+[  OK  ] Started Flush Journal to Persistent Storage.
+         Starting Create Volatile Files and Directories...
+[  OK  ] Found device /dev/ttyS0.
+[FAILED] Failed to start Create Volatile Files and Directories.
+See 'systemctl status systemd-tmpfiles-setup.service' for details.
+[    5.798016] cpu cpu0: failed to get clock: -2
+[    5.803546] cpufreq-dt: probe of cpufreq-dt failed with error -2
+[FAILED[    5.811508] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Reached target System Time Synchronized.
+         Starting Update UTMP about System Boot/Shutdown...
+[FAILED] Failed to start Update UTMP about System Boot/Shutdown.
+See 'systemctl status systemd-update-utmp.service' for details.
+[DEPEND] Dependency failed for Update UTMP about System Runlevel Changes.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Started Daily apt activities.
+[  OK  ] Reached target Timers.
+[  OK  ] Reached target Basic System.
+[  OK  ] Started Regular background program processing daemon.
+         Starting getty on tty2-tty6 if dbus and logind are not available...
+         Starting System Logging Service...
+[  OK  ] Started System Logging Service.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Started Raise network interfaces.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Reached target Network.
+         Starting Permit User Sessions...
+         Starting OpenBSD Secure Shell server...
+[  OK  ] Started Permit User Sessions.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Started Getty on tty5.
+[  OK  ] Started Getty on tty4.
+[  OK  ] Started Getty on tty3.
+[  OK  ] Started Getty on tty6.
+[  OK  ] Started Getty on tty2.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttyS0.
+[  OK  ] Started OpenBSD Secure Shell server.
+[  OK  ] Started getty on tty2-tty6 if dbus and logind are not available.
+[  OK  ] Stopped Network Time Synchronization.
+[FAILED] Failed to start Network Time Synchronization.
+See 'systemctl status systemd-timesyncd.service' for details.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Reached target Multi-User System.
+[  OK  ] Reached target Graphical Interface.
+
+Debian GNU/Linux stretch/sid pc-12 ttyS0
