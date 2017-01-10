@@ -71,6 +71,13 @@ Vous pouvez alors finir le debootstrap:
 
 ```bash
 /debootstrap/debootstrap --second-stage
+```
+
+//FIXME virer les inclues
+
+La première fois le kernel ne sera présent donc relancer une deuxième fois, la troisième fois sera lancée au moment du boot de la board.
+
+```bash
 ...
 I: Base system installed successfully.
 ```
