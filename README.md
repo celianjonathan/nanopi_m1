@@ -17,12 +17,16 @@ U-boot
 
 http://git.denx.de/?p=u-boot.git;a=summary
 
+```bash
 make ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-" orangepi_one_defconfig
 make ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-"
+```
 
 Fichier à récuperer: u-boot-sunxi-with-spl.bin
 
+```bash
 sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdc bs=1k seek=8
+```
 
 Installation Debian Stretch
 ===========================
@@ -38,20 +42,23 @@ Installation Debian Stretch
 
 Boot
 ====
-
+```bash
 setenv extra init=/bin/bash
-
+```
+```bash
 mount -o remount -w /
-
+```
+```bash
 passwd
+```
 
 Changer le pass
 
+```bash
 /debootstrap/debootstrap --second-stage
-
 ...
-
 I: Base system installed successfully.
+```
 
 Redemarrer la carte
 
