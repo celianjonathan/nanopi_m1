@@ -73,7 +73,7 @@ Vous pouvez alors finir le debootstrap:
 /debootstrap/debootstrap --second-stage
 ```
 
-//FIXME virer les inclues
+//FIXME virer les includes
 
 La première fois le kernel ne sera présent donc relancer une deuxième fois, la troisième fois sera lancée au moment du boot de la board.
 
@@ -124,6 +124,12 @@ bootz 0x42000000 0x43300000:${filesize} 0x43000000
 mkimage -C none -A arm -T script -d boot.cmd boot.scr
 ```
 
+DTB
+---
+
+Le dtb se situe dans `/usr/lib/linux-image-4.8.0-2-armmp-lpae/usr/lib/linux-image-4.8.0-2-armmp-lpae`
+Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot. On l'a nommé `board.dtb` (lien symbolique good).
+
 On arrive alors au dossier boot suivant:
 
 ```bash
@@ -141,12 +147,6 @@ lrwxrwxrwx  1 root root       29 Jan 10 15:35 initrd -> initrd.img-4.8.0-2-armmp
 -rw-r--r--  1 root root  3751128 Jan  4 19:39 vmlinuz-4.8.0-2-armmp-lpae
 lrwxrwxrwx  1 root root       26 Jan 10 15:35 zImage -> vmlinuz-4.8.0-2-armmp-lpae
 ```
-
-DTB
----
-
-Le dtb se situe dans `/usr/lib/linux-image-4.8.0-2-armmp-lpae/usr/lib/linux-image-4.8.0-2-armmp-lpae`
-Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot. On l'a nommé `board.dtb` (lien symbolique good).
 
 Boot
 ====
@@ -167,6 +167,12 @@ mount -o remount -w /
 ```
 ```bash
 passwd
+```
+
+Relancer la 3ième fois le debootstrap:
+
+```bash
+/debootstrap/debootstrap --second-stage
 ```
 
 Durant notre première tentative de boot, fsck n'était pas executé lors du boot.
