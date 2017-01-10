@@ -58,14 +58,10 @@ DTB
 ---
 
 Le dtb se situe dans `/usr/lib/linux-image-4.8.0-2-armmp-lpae/usr/lib/linux-image-4.8.0-2-armmp-lpae`
-Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot
+Le fichier `sun8i-h3-orangepi-one.dtb` est à placer dans /boot. On l'a nommé `board.dtb`.
 
 Boot
 ====
-
-```bash
-setenv extra init=/bin/bash
-```
 
 La carte étant flash avec une debian standard stretch, le mot de passe peut être changé en passant, via u-boot, directement par bash:
 
