@@ -230,6 +230,10 @@ Gestion du Réseau
 
 https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-official
 
+```bash
+patch -p1 < patch1
+```
+
 Cross Compilateur Tool Chain
 ============================
 
