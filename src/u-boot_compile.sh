@@ -1,3 +1,4 @@
+#!/bin/sh
 # U-Boot compile Script for nanopi m1
 
 
