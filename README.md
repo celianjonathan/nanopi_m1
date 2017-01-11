@@ -228,6 +228,7 @@ Redemarrer la carte
 Gestion du Réseau
 =================
 
+https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-official
 
 Cross Compilateur Tool Chain
 ============================
